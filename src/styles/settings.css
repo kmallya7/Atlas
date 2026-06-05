@@ -1,0 +1,233 @@
+.settings-page {
+  display: grid;
+  gap: 18px;
+}
+
+.settings-header {
+  margin-bottom: 0;
+}
+
+.settings-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.settings-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.settings-category-management {
+  grid-column: 1 / -1;
+}
+
+.settings-profile-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  background: var(--surface-soft);
+}
+
+.settings-profile-card strong,
+.settings-profile-card p {
+  display: block;
+  margin: 0;
+}
+
+.settings-profile-card p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.settings-badge {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  border-radius: 8px;
+  padding: 0 10px;
+  background: var(--green-soft);
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.settings-form-grid input,
+.settings-form-grid select,
+.settings-control select {
+  width: 100%;
+  border-radius: 10px;
+  background: var(--surface-soft);
+}
+
+.settings-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.settings-section-heading span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.settings-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.settings-category-group {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  background: var(--surface-soft);
+}
+
+.settings-category-list {
+  display: grid;
+  gap: 10px;
+}
+
+.settings-category-row,
+.settings-empty-state {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--surface);
+}
+
+.settings-category-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.settings-category-row strong,
+.settings-empty-state strong {
+  display: block;
+}
+
+.settings-category-row span,
+.settings-empty-state span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.settings-empty-state {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.settings-toggle-list,
+.settings-status-list,
+.settings-action-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.settings-toggle,
+.settings-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--surface-soft);
+}
+
+.settings-toggle span,
+.settings-toggle strong,
+.settings-toggle small,
+.settings-status-row span,
+.settings-status-row strong {
+  display: block;
+}
+
+.settings-toggle small,
+.settings-status-row span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.settings-toggle input {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  accent-color: var(--accent);
+}
+
+.settings-status-row strong {
+  border-radius: 8px;
+  padding: 6px 9px;
+  background: var(--rose-soft);
+  color: var(--rose);
+  font-size: 13px;
+}
+
+.settings-action-stack {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.settings-action-stack button {
+  width: 100%;
+}
+
+.settings-notice,
+.settings-inline-error {
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 720;
+}
+
+.settings-notice {
+  background: var(--blue-soft);
+  color: var(--accent-2);
+}
+
+.settings-inline-error {
+  border: 1px solid rgba(156, 81, 79, 0.22);
+  background: var(--rose-soft);
+  color: var(--rose);
+}
+
+.settings-category-modal {
+  width: min(620px, 100%);
+}
+
+@media (max-width: 1180px) {
+  .settings-category-grid,
+  .settings-action-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-category-row,
+  .settings-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .settings-category-row .table-actions {
+    width: 100%;
+  }
+}
