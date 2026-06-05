@@ -1,0 +1,23 @@
+{
+  "name": "atlas-finance",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Atlas - a personal finance tracker for expenses, loans, debts, budgets, goals and accounts.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@vitejs/plugin-legacy": "latest",
+    "firebase": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "prettier": "latest"
+  }
+}

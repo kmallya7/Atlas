@@ -1,0 +1,359 @@
+.panel,
+.stat-card,
+.chart-card,
+.table-card,
+.progress-card,
+.category-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.panel,
+.chart-card,
+.table-card,
+.progress-card,
+.category-card,
+.stat-card {
+  padding: 18px;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.card-title-row p {
+  margin: 0;
+  font-size: 13px;
+}
+
+.stat-grid,
+.budget-grid,
+.goal-grid,
+.reports-grid,
+.settings-grid,
+.account-grid,
+.category-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.stat-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  min-height: 154px;
+}
+
+.stat-card span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 31px;
+  line-height: 1;
+}
+
+.stat-card p {
+  margin: 12px 0 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.stat-card small,
+.progress-card small {
+  display: inline-flex;
+  border-radius: 8px;
+  padding: 5px 8px;
+  background: var(--green-soft);
+  color: var(--accent);
+  font-weight: 720;
+}
+
+.tone-blue small,
+.progress-card.tone-blue small {
+  background: var(--blue-soft);
+  color: var(--accent-2);
+}
+
+.tone-amber small,
+.progress-card.tone-amber small {
+  background: var(--amber-soft);
+  color: var(--amber);
+}
+
+.tone-rose small,
+.progress-card.tone-rose small {
+  background: var(--rose-soft);
+  color: var(--rose);
+}
+
+.primary-action,
+.secondary-button,
+.ghost-button,
+.date-filter,
+.avatar-button {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 12px;
+  padding: 0 13px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 720;
+}
+
+.primary-action {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(47, 95, 76, 0.2);
+}
+
+.secondary-button {
+  background: var(--green-soft);
+  color: var(--accent);
+}
+
+.ghost-button {
+  color: var(--rose);
+}
+
+.avatar-button {
+  width: 40px;
+  padding: 0;
+  border-color: var(--accent);
+  background: #eef4ef;
+  color: var(--accent);
+}
+
+.avatar-button span,
+.avatar-large {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-weight: 800;
+}
+
+.avatar-large {
+  width: 56px;
+  height: 56px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.line-chart {
+  width: 100%;
+  height: auto;
+  margin-top: 4px;
+  overflow: visible;
+}
+
+.chart-grid {
+  stroke: #e9e3d8;
+  stroke-width: 1;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  color: var(--subtle);
+  font-size: 12px;
+}
+
+.bar-chart {
+  display: grid;
+  gap: 14px;
+}
+
+.bar-item {
+  display: grid;
+  grid-template-columns: 74px minmax(110px, 1fr) 64px;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.bar-track,
+.progress-track {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eee8dd;
+}
+
+.bar-track strong,
+.progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.progress-card .progress-track {
+  margin: 14px 0 10px;
+}
+
+.progress-card.tone-blue .progress-track span {
+  background: var(--accent-2);
+}
+
+.progress-card.tone-amber .progress-track span {
+  background: var(--amber);
+}
+
+.progress-card.tone-rose .progress-track span {
+  background: var(--rose);
+}
+
+.progress-meta,
+.bill-row,
+.account-row,
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.progress-meta {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.stack-list,
+.bill-list,
+.account-list,
+.settings-list {
+  display: grid;
+  gap: 12px;
+}
+
+.bill-row,
+.account-row {
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--surface-soft);
+}
+
+.bill-row span,
+.account-row span,
+.data-table td span,
+.profile-row p {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.data-table-wrap {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 13px 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.data-table th {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.amount {
+  font-weight: 780;
+}
+
+.amount.income {
+  color: var(--accent);
+}
+
+.amount.expense {
+  color: var(--rose);
+}
+
+.pill {
+  display: inline-flex;
+  border-radius: 8px;
+  padding: 4px 8px;
+  background: var(--rose-soft);
+  color: var(--rose);
+  font-weight: 720;
+}
+
+.pill.income {
+  background: var(--green-soft);
+  color: var(--accent);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.form-grid label,
+.settings-control {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-grid input,
+.form-grid select,
+.settings-control select {
+  height: 42px;
+  padding: 0 12px;
+}
+
+.full-span,
+.form-actions {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip-list span {
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-weight: 700;
+}

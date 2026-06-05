@@ -1,0 +1,340 @@
+.loans-page {
+  display: grid;
+  gap: 18px;
+}
+
+.loans-header {
+  margin-bottom: 0;
+}
+
+.loan-overview-grid {
+  display: grid;
+  grid-template-columns: 1.25fr repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.loan-overview-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 16px 38px rgba(47, 40, 30, 0.055);
+}
+
+.loan-overview-card.total {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(243, 228, 224, 0.72));
+}
+
+.loan-overview-card span,
+.loan-section-header span,
+.loan-card-header span,
+.loan-meta-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.loan-overview-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.loan-overview-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.loan-overview-track,
+.loan-progress-track {
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ece6dc;
+}
+
+.loan-overview-track {
+  height: 12px;
+  margin-top: 14px;
+}
+
+.loan-overview-track span,
+.loan-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.loan-dues-section,
+.loans-section {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 46px rgba(47, 40, 30, 0.055);
+}
+
+.loan-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.loan-section-header h2 {
+  margin: 6px 0 0;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.loan-section-header p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-weight: 720;
+  text-align: right;
+}
+
+.loan-due-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.loan-due-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  background: var(--surface-soft);
+}
+
+.loan-due-row strong,
+.loan-due-row span {
+  display: block;
+}
+
+.loan-due-row span {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.loan-due-row b {
+  flex: 0 0 auto;
+}
+
+.loan-due-row.status-overdue {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(243, 228, 224, 0.74));
+}
+
+.loan-type-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.loan-type-list span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 780;
+}
+
+.loan-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.loan-card,
+.loan-empty-state {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--surface-soft);
+}
+
+.loan-card {
+  display: grid;
+  gap: 15px;
+}
+
+.loan-card.status-active {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(232, 238, 242, 0.7));
+}
+
+.loan-card.status-overdue {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(243, 228, 224, 0.74));
+}
+
+.loan-card.status-paid-off {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(232, 240, 234, 0.66));
+}
+
+.loan-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.loan-card-header h3 {
+  margin: 5px 0 6px;
+  font-size: 20px;
+}
+
+.loan-card-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.loan-status {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: var(--blue-soft);
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.loan-status.overdue {
+  background: var(--rose-soft);
+  color: var(--rose);
+}
+
+.loan-status.paid-off {
+  background: var(--green-soft);
+  color: var(--accent);
+}
+
+.loan-progress-row,
+.loan-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.loan-progress-row strong {
+  font-size: 24px;
+}
+
+.loan-progress-row span,
+.loan-card-footer > span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 720;
+}
+
+.loan-progress-track {
+  height: 12px;
+}
+
+.status-overdue .loan-progress-track span {
+  background: var(--rose);
+}
+
+.status-paid-off .loan-progress-track span {
+  background: var(--accent);
+}
+
+.loan-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.loan-meta-grid div {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 11px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.loan-meta-grid b {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.loan-card-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+.loan-empty-state {
+  display: grid;
+  min-height: 220px;
+  place-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.loan-empty-state.compact {
+  min-height: 96px;
+}
+
+.loan-empty-state strong {
+  font-size: 18px;
+}
+
+.loan-empty-state span {
+  color: var(--muted);
+}
+
+.loan-modal {
+  width: min(840px, 100%);
+}
+
+@media (max-width: 1280px) {
+  .loan-due-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1180px) {
+  .loan-overview-grid,
+  .loan-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .loan-overview-grid,
+  .loan-card-grid,
+  .loan-meta-grid,
+  .loan-due-list {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-section-header,
+  .loan-card-header,
+  .loan-progress-row,
+  .loan-card-footer,
+  .loan-due-row {
+    display: grid;
+  }
+
+  .loan-section-header p {
+    text-align: left;
+  }
+}

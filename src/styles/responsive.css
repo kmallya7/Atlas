@@ -1,0 +1,145 @@
+@media (max-width: 1180px) {
+  .app-shell {
+    grid-template-columns: 232px minmax(0, 1fr);
+  }
+
+  .stat-grid,
+  .budget-grid,
+  .goal-grid,
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-grid,
+  .dashboard-mosaic,
+  .dashboard-main-grid,
+  .dashboard-bottom-grid,
+  .content-grid,
+  .reports-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .app-shell {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .sidebar-summary {
+    display: none;
+  }
+
+  .main-content {
+    padding: 18px 18px 32px;
+  }
+
+  .top-header {
+    position: static;
+    flex-direction: column;
+    align-items: stretch;
+    margin: -18px -18px 22px;
+    padding: 14px 18px;
+  }
+
+  .header-actions {
+    justify-content: space-between;
+  }
+
+  .page-header {
+    display: block;
+  }
+
+  .dashboard-welcome {
+    display: block;
+  }
+
+  .hero-balance {
+    margin-top: 16px;
+  }
+
+  .dashboard-period {
+    margin-top: 16px;
+  }
+
+  .account-grid,
+  .settings-grid,
+  .manual-account {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  .nav-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .stat-grid,
+  .budget-grid,
+  .goal-grid,
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .goal-create {
+    grid-column: auto;
+  }
+
+  .header-actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  .primary-action {
+    grid-column: 1 / -1;
+  }
+
+  .date-filter {
+    justify-content: flex-start;
+  }
+
+  .bar-item {
+    grid-template-columns: 62px minmax(90px, 1fr) 58px;
+  }
+
+  .dashboard-card {
+    padding: 18px;
+  }
+
+  .dashboard-card-header {
+    display: grid;
+    gap: 10px;
+  }
+
+  .dashboard-card-header h3 {
+    font-size: 24px;
+  }
+
+  .net-worth-split,
+  .cash-flow-breakdown,
+  .category-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,245 @@
+.budgets-page {
+  display: grid;
+  gap: 18px;
+}
+
+.budgets-header {
+  margin-bottom: 0;
+}
+
+.budget-overview-grid {
+  display: grid;
+  grid-template-columns: 1.25fr repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.budget-overview-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 16px 38px rgba(47, 40, 30, 0.055);
+}
+
+.budget-overview-card.total {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(232, 240, 234, 0.92));
+}
+
+.budget-overview-card span,
+.budget-section-header span,
+.budget-card-header span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 780;
+  text-transform: uppercase;
+}
+
+.budget-overview-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.budget-overview-card strong.is-exceeded {
+  color: var(--rose);
+}
+
+.budget-overview-card p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.budget-status {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: var(--green-soft);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.budget-status.warning {
+  background: var(--amber-soft);
+  color: var(--amber);
+}
+
+.budget-status.exceeded {
+  background: var(--rose-soft);
+  color: var(--rose);
+}
+
+.budgets-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.budget-section {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 46px rgba(47, 40, 30, 0.055);
+}
+
+.budget-section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.budget-section-header h2 {
+  margin: 6px 0 0;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.budget-section-header p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 720;
+}
+
+.budget-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.budget-card,
+.budget-empty-state {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--surface-soft);
+}
+
+.budget-card {
+  display: grid;
+  gap: 15px;
+}
+
+.budget-card.status-safe {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(232, 240, 234, 0.64));
+}
+
+.budget-card.status-warning {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(243, 234, 217, 0.7));
+}
+
+.budget-card.status-exceeded {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(243, 228, 224, 0.72));
+}
+
+.budget-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.budget-card-header h3 {
+  margin: 5px 0 6px;
+  font-size: 20px;
+}
+
+.budget-card-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.budget-progress-row,
+.budget-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.budget-progress-row strong {
+  font-size: 24px;
+}
+
+.budget-progress-row span,
+.budget-card-footer > span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 720;
+}
+
+.budget-progress-track {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ece6dc;
+}
+
+.budget-progress-track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.status-warning .budget-progress-track span {
+  background: var(--amber);
+}
+
+.status-exceeded .budget-progress-track span {
+  background: var(--rose);
+}
+
+.budget-card-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+.budget-empty-state {
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.budget-empty-state strong {
+  font-size: 18px;
+}
+
+.budget-empty-state span {
+  color: var(--muted);
+}
+
+.budget-modal {
+  width: min(760px, 100%);
+}
+
+@media (max-width: 1180px) {
+  .budget-overview-grid,
+  .budget-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .budget-overview-grid,
+  .budget-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .budget-card-header,
+  .budget-progress-row,
+  .budget-card-footer,
+  .budget-section-header {
+    display: grid;
+  }
+}
