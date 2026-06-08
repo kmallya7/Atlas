@@ -1,22 +1,68 @@
-import { transactions } from '../data/mockData.js';
-import { createId } from '../utils/id.js';
+import {
+  createFirestoreLoadingState,
+  createFirestoreState,
+  createUserDocument,
+  deleteUserCollectionDocument,
+  listUserCollectionDocuments,
+  readUserCollectionDocument,
+  runFirestoreRequest,
+  updateUserCollectionDocument,
+  userCollections,
+} from './firestore.service.js';
 
-export async function getTransactions() {
-  // TODO: Replace mock return with Firestore listDocuments('transactions', userId).
-  return transactions;
+const collectionName = userCollections.transactions;
+
+// Future use: Transactions filters and forms will call these functions once the mock table is replaced.
+// Transaction documents are scoped to users/{userId}/transactions and can reference account/category names or IDs.
+export function createTransactionsState() {
+  return createFirestoreState([]);
 }
 
-export async function createTransaction(payload) {
-  // TODO: Connect to Firestore createDocument('transactions', { ...payload, userId }).
-  return { id: createId('transaction'), splits: payload.splits || [], ...payload };
+export function createTransactionsLoadingState(data = []) {
+  return createFirestoreLoadingState(data);
 }
 
-export async function updateTransaction(id, payload) {
-  // TODO: Connect to Firestore updateDocument('transactions', id, payload).
-  return { id, ...payload };
+export function listTransactions(userId) {
+  return runFirestoreRequest(() => listUserCollectionDocuments(userId, collectionName));
 }
 
-export async function deleteTransaction(id) {
-  // TODO: Connect to Firestore deleteDocument('transactions', id).
-  return id;
+export function readTransaction(userId, transactionId) {
+  return runFirestoreRequest(() => readUserCollectionDocument(userId, collectionName, transactionId));
+}
+
+export function createTransaction(userId, payload) {
+  return runFirestoreRequest(async () => {
+    const transaction = normalizeTransaction(payload);
+    const ref = await createUserDocument(userId, collectionName, transaction);
+    return { id: ref.id, ...transaction };
+  });
+}
+
+export function updateTransaction(userId, transactionId, payload) {
+  return runFirestoreRequest(async () => {
+    const transaction = normalizeTransaction(payload);
+    await updateUserCollectionDocument(userId, collectionName, transactionId, transaction);
+    return { id: transactionId, ...transaction };
+  });
+}
+
+export function deleteTransaction(userId, transactionId) {
+  return runFirestoreRequest(async () => {
+    await deleteUserCollectionDocument(userId, collectionName, transactionId);
+    return transactionId;
+  });
+}
+
+function normalizeTransaction(payload = {}) {
+  return {
+    merchant: payload.merchant || '',
+    category: payload.category || '',
+    account: payload.account || '',
+    type: payload.type || 'expense',
+    amountValue: Number(payload.amountValue || payload.amount || 0),
+    currency: payload.currency || 'INR',
+    isoDate: payload.isoDate || '',
+    notes: payload.notes || '',
+    splits: Array.isArray(payload.splits) ? payload.splits : [],
+  };
 }

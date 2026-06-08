@@ -178,6 +178,41 @@
   font-size: 13px;
 }
 
+.settings-status-row strong.is-connected {
+  background: var(--green-soft);
+  color: var(--accent);
+}
+
+.settings-auth-user {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: var(--surface-soft);
+}
+
+.settings-auth-user span,
+.settings-auth-user strong,
+.settings-auth-user p {
+  display: block;
+}
+
+.settings-auth-user span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.settings-auth-user strong {
+  margin-top: 6px;
+}
+
+.settings-auth-user p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .settings-action-stack {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }

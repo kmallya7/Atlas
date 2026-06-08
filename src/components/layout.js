@@ -1,12 +1,12 @@
 import { createHeader } from './header.js';
-import { createSidebar } from './sidebar.js';
+import { createSidebar, isSidebarCollapsed } from './sidebar.js';
 
-export function createLayout(content) {
+export function createLayout(content, options = {}) {
   return `
-    <div class="app-shell">
-      ${createSidebar()}
+    <div class="app-shell ${isSidebarCollapsed() ? 'is-sidebar-collapsed' : ''}">
+      ${createSidebar({ user: options.user })}
       <main class="main-content">
-        ${createHeader()}
+        ${createHeader(options.user)}
         <div class="page-content">
           ${content}
         </div>

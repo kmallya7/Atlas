@@ -74,6 +74,15 @@ function findCategory(type, categoryId) {
   return settingsState.categories[type]?.find((category) => category.id === categoryId);
 }
 
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 function renderProfileSection() {
   return `
     <article class="panel settings-panel profile-settings">
@@ -257,24 +266,29 @@ function renderDataSection() {
   `;
 }
 
-function renderFirebaseSection() {
+function renderFirebaseSection(user) {
   return `
     <article class="panel settings-panel">
       <div class="card-title-row">
         <div>
           <h3>Firebase connection</h3>
-          <p>Integration placeholder; no reads or writes are active</p>
+          <p>Auth is connected; database reads and writes are still off</p>
         </div>
       </div>
       <div class="settings-status-list">
         <div class="settings-status-row">
           <span>Auth status</span>
-          <strong>Not connected</strong>
+          <strong class="is-connected">Connected</strong>
         </div>
         <div class="settings-status-row">
           <span>Database status</span>
           <strong>Not connected</strong>
         </div>
+      </div>
+      <div class="settings-auth-user">
+        <span>Signed in as</span>
+        <strong>${escapeHtml(user?.name || 'Atlas user')}</strong>
+        <p>${escapeHtml(user?.email || 'Google account')}</p>
       </div>
     </article>
   `;
@@ -337,7 +351,7 @@ function renderCategoryModal() {
   `;
 }
 
-export function renderSettingsPage() {
+export function renderSettingsPage(context = {}) {
   return `
     <section class="settings-page" id="settings-page">
       <section class="page-header settings-header">
@@ -354,7 +368,7 @@ export function renderSettingsPage() {
         ${renderCategorySection()}
         ${renderAccountPreferencesSection()}
         ${renderDataSection()}
-        ${renderFirebaseSection()}
+        ${renderFirebaseSection(context.user)}
       </section>
       ${renderCategoryModal()}
     </section>
