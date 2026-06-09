@@ -31,8 +31,8 @@ function saveCollapsedState(isCollapsed) {
 }
 
 function readTheme() {
-  if (typeof localStorage === 'undefined') return 'light';
-  return localStorage.getItem(themeStorageKey) || 'light';
+  if (typeof localStorage === 'undefined') return 'dark';
+  return localStorage.getItem(themeStorageKey) || 'dark';
 }
 
 function saveTheme(theme) {
@@ -42,7 +42,9 @@ function saveTheme(theme) {
 
 function applyTheme(theme = readTheme()) {
   if (typeof document === 'undefined') return;
-  document.documentElement.dataset.atlasTheme = theme;
+  const nextTheme = theme === 'light' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = nextTheme;
+  document.documentElement.dataset.atlasTheme = nextTheme;
 }
 
 function userInitials(user) {
@@ -131,9 +133,6 @@ export function createSidebar(options = {}) {
       <div class="sidebar-top">
         <a class="brand" href="#/dashboard" data-link aria-label="Atlas dashboard">
           <span class="brand-mark">A</span>
-          <span class="brand-copy">
-            <strong>Atlas</strong>
-          </span>
         </a>
         ${renderTopActions(isCollapsed)}
       </div>
@@ -146,7 +145,6 @@ export function createSidebar(options = {}) {
               <a class="nav-item ${active ? 'is-active' : ''}" href="${item.href}" data-link title="${escapeHtml(item.label)}" ${active ? 'aria-current="page"' : ''}>
                 ${icon(item.icon)}
                 <span class="nav-label">${escapeHtml(item.label)}</span>
-                ${item.badge ? `<span class="nav-badge">${escapeHtml(item.badge)}</span>` : ''}
               </a>
             `;
           })
@@ -169,8 +167,11 @@ export function createSidebar(options = {}) {
 function setSidebarCollapsed(isCollapsed) {
   saveCollapsedState(isCollapsed);
   document.querySelector('.app-shell')?.classList.toggle('is-sidebar-collapsed', isCollapsed);
-  document.querySelector('.sidebar')?.classList.toggle('is-collapsed', isCollapsed);
-  document.querySelector('[data-sidebar-action="toggle-collapse"]')?.setAttribute('aria-pressed', String(isCollapsed));
+  const sidebar = document.querySelector('.sidebar');
+  sidebar?.classList.toggle('is-collapsed', isCollapsed);
+  const toggleButton = document.querySelector('[data-sidebar-action="toggle-collapse"]');
+  toggleButton?.setAttribute('aria-pressed', String(isCollapsed));
+  toggleButton?.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
 }
 
 function refreshSidebar() {
@@ -227,7 +228,6 @@ if (typeof document !== 'undefined' && !window.__atlasSidebarBound) {
       profileMenuOpen = false;
       whatsNewOpen = false;
       setSidebarCollapsed(!readCollapsedState());
-      refreshSidebarChrome();
     }
 
     if (action === 'toggle-profile-menu') {
@@ -238,8 +238,9 @@ if (typeof document !== 'undefined' && !window.__atlasSidebarBound) {
 
     if (action === 'toggle-theme') {
       event.preventDefault();
-      saveTheme(sidebarAction.dataset.themeValue || 'light');
-      applyTheme();
+      const nextTheme = sidebarAction.dataset.themeValue || 'light';
+      saveTheme(nextTheme);
+      applyTheme(nextTheme);
       profileMenuOpen = true;
       refreshSidebarChrome();
     }

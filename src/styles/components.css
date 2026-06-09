@@ -6,7 +6,7 @@
 .category-card {
   border: 1px solid var(--border);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--card-bg);
   box-shadow: var(--shadow);
 }
 
@@ -105,28 +105,29 @@
 .date-filter,
 .avatar-button {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 34px;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  border-radius: 12px;
-  padding: 0 13px;
+  gap: 7px;
+  border-radius: 8px;
+  padding: 0 11px;
   border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  font-weight: 720;
+  background: var(--control-bg);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 620;
 }
 
 .primary-action {
   border-color: var(--accent);
   background: var(--accent);
-  color: #fff;
-  box-shadow: 0 12px 28px rgba(47, 95, 76, 0.2);
+  color: var(--accent-contrast);
+  box-shadow: none;
 }
 
 .secondary-button {
-  background: var(--green-soft);
-  color: var(--accent);
+  background: var(--control-bg);
+  color: var(--text-secondary);
 }
 
 .ghost-button {
@@ -134,11 +135,11 @@
 }
 
 .avatar-button {
-  width: 40px;
+  width: 34px;
   padding: 0;
-  border-color: var(--accent);
-  background: #eef4ef;
-  color: var(--accent);
+  border-color: var(--border-strong);
+  background: var(--control-bg);
+  color: var(--text-secondary);
 }
 
 .avatar-button img {
@@ -160,7 +161,7 @@
   width: 56px;
   height: 56px;
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-contrast);
 }
 
 .line-chart {
@@ -171,7 +172,7 @@
 }
 
 .chart-grid {
-  stroke: #e9e3d8;
+  stroke: var(--chart-grid);
   stroke-width: 1;
 }
 
@@ -201,7 +202,7 @@
   height: 10px;
   overflow: hidden;
   border-radius: 8px;
-  background: #eee8dd;
+  background: var(--elevated-bg);
 }
 
 .bar-track strong,
